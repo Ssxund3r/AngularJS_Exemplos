@@ -1,7 +1,5 @@
-var permissao = false;
 // configura��o do m�dulo
 var app = angular.module('loja', ['ngRoute', 'ngResource', 'ngAnimate']);
-
 
 // configurando rotas
 app.config(function ($routeProvider) {
@@ -27,12 +25,12 @@ app.config(function ($routeProvider) {
 		});
 });
 
-app.controller('clienteController', function ($scope, $http) {
-	$scope.listarClientes = function () {
-		$http.get("cliente/listar").then(function (response) {
-			$scope.data = response.data;
-		}).error(function (response) {
-			alert("Error" + response);
-		});
-	};
-});
+app.controller('clienteController', function($scope, $http) {
+	  $scope.listarClientes = function() {
+	    $http.get("cliente/listar").success(function(response) {
+	      $scope.data = response.data;
+	    }).catch(function(error) {
+	      alert("Error" + error);
+	    });
+	  };
+	});

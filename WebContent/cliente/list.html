@@ -1,7 +1,7 @@
 <html ng-app="loja">
 <h1>Lista de clientes</h1>
 
-<div ng-init="listarClientes()" ng-controller="clienteController">
+<div ng-controller="clienteController" ng-init="listarClientes()">
 
 	<h1 ng-repeat="cliente in data">{{cliente}}</h1>
 	

@@ -22,7 +22,7 @@ public class ClienteController extends DaoImplementacao<Cliente> implements DaoI
 		super(persistenceClass);
 	}
 
-	@RequestMapping(value = "listar", method = RequestMethod.GET, headers = "Accept=application/json")
+	@RequestMapping(value="/listar", method=RequestMethod.GET, headers = "Accept=application/json") 
 	@ResponseBody
 	public String listar() {
 		List<Cliente> clientes = new ArrayList<Cliente>();
@@ -31,9 +31,7 @@ public class ClienteController extends DaoImplementacao<Cliente> implements DaoI
 		cliente.setEndereco("Rua Jorge Amado");
 		cliente.setNome("Gabriel Costa");
 		cliente.setTelefone("55+(51)98639-9909");
-		clientes.add(cliente);
 		
-	
 		cliente.setId(12L);
 		cliente.setEndereco("Gravatai");
 		cliente.setNome("Jhow");

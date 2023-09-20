@@ -120,7 +120,7 @@
 
 					</div>
 				</div>
-	
+
 			</nav>
 
 			<div class="content" ng-view>
@@ -129,22 +129,4 @@
 		</div>
 	</div>
 </body>
-
-<script type="text/javascript">
-    	$(document).ready(function(){
-        	$.notify({
-            	message: "Bem Vindo!"
-
-            },{
-                type: 'success',
-                timer: 2000
-            });
-    	});
-    
-    	$.get("livro/autenticar", function(data) {
-		    json = JSON.parse(data);
-		    permissao = json.permissao;
-		});
-    	
-	</script>
 </html>
