@@ -1,5 +1,12 @@
-<!DOCTYPE html>
-<html>
+<html ng-app="loja">
 <h1>Lista de clientes</h1>
+
+<div ng-init="listarClientes()" ng-controller="clienteController">
+
+	<h1 ng-repeat="cliente in data">{{cliente}}</h1>
+	
+</div>
+	
 <a href="#cliente/cadastro">Novo</a>
+
 </html>

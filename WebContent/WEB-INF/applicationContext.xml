@@ -46,12 +46,12 @@
          <property name="dataSource" ref="springDataSource"/>
      </bean>  
       
-      <!--  <bean id="clienteController" name="clienteController"
+       <bean id="clienteController" name="clienteController"
         class="projeto.angular.controller.ClienteController">
       		<constructor-arg value="projeto.angular.model.Cliente"/>
       </bean>
 
-
+	<!--  
 	<bean id="estadosController" name="estadosController"
 		class="projeto.angular.controller.EstadosController">
 		<constructor-arg value="projeto.angular.model.Estados" />
