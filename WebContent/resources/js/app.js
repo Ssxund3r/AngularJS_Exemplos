@@ -25,12 +25,23 @@ app.config(function ($routeProvider) {
 		});
 });
 
-app.controller('clienteController', function($scope, $http) {
-	  $scope.listarClientes = function() {
-	    $http.get("cliente/listar").success(function(response) {
-	      $scope.data = response.data;
-	    }).catch(function(error) {
-	      alert("Error" + error);
-	    });
-	  };
-	});
+app.controller('clienteController', function ($scope, $http) {
+	$scope.listarClientes = function () {
+		$http.get("cliente/listar").then(function (response) {
+			$scope.data = response.data;
+		}).catch(function (error) {
+			alert("Error" + error);
+		});
+	};
+	
+	// remover cliente passado como parametro
+	$scope.removerCliente = function(codCliente) {
+		$http.delete("cliente/deletar/" + codCliente).then(function(response) {
+			$scope.listarClientes();
+		}).catch(function(error, reason, reasonLocal) {
+		    alert("Erro: " + error + ", Motivo: " + reason);
+		    console.log("Motivo local: ", reasonLocal);
+		  });
+	};
+
+});

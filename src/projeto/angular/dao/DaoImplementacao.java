@@ -37,6 +37,11 @@ public abstract class DaoImplementacao<T> implements DaoInterface<T> {
 		sessionFactory.getCurrentSession().delete(objeto);
 		sessionFactory.getCurrentSession().flush();
 	}
+	
+	@Override
+	public T loadObjeto(Long codigo) throws Exception { 
+		return (T) sessionFactory.getCurrentSession().get(persistenceClass, codigo);
+	}
 
 	@Override
 	public void atualizar(T objeto) throws Exception {

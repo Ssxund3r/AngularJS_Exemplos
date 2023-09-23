@@ -7,81 +7,33 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import javax.persistence.Table;
 
 /**
  * Modelo que representa a tabela de Cliente para o banco de dados
+ * 
  * @author Gabriel
  *
  */
 @Entity
+@Table(name="TB_CLIENTE")
 public class Cliente implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="ID_CLIENTE")
 	private Long id;
-
+	
+	@Column(name="NOME")
 	private String nome;
-
+	
+	@Column(name="ENDERECO")
 	private String endereco;
-
+	
+	@Column(name="TELEFONE")
 	private String telefone;
-	
-	private String sexo; 
-	
-	private Boolean ativo;
-	
-	private String interesse;
-	
-	private String cpf;
-	
-	@Column(columnDefinition="text")
-	private String foto;
-	
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-	
-	public String getCpf() {
-		return cpf;
-	}
-	
-	public void setFoto(String foto) {
-		this.foto = foto;
-	}
-	
-	public String getFoto() {
-		return foto;
-	}
-	
-	public void setInteresse(String interesse) {
-		this.interesse = interesse;
-	}
-	
-	public String getInteresse() {
-		return interesse;
-	}
-	
-	public void setAtivo(Boolean ativo) {
-		if (ativo == null) 
-			this.ativo = false;
-		
-		this.ativo = ativo;
-	}
-	
-	public Boolean getAtivo() {
-		return ativo;
-	}
-
-	public void setSexo(String sexo) {
-		this.sexo = sexo;
-	}
-
-	public String getSexo() {
-		return sexo;
-	}
 
 	public Long getId() {
 		return id;
@@ -141,4 +93,3 @@ public class Cliente implements Serializable {
 	}
 
 }
-

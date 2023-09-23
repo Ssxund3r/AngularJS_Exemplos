@@ -12,7 +12,9 @@ public interface DaoInterface<T> {
 	void salvar(T objeto) throws Exception;
 
 	void deletar(T objeto) throws Exception;
-
+	
+	T loadObjeto(Long codigo) throws Exception;
+	
 	void atualizar(T objeto) throws Exception;
 
 	void salvarOuAtualizar(T objeto) throws Exception;
