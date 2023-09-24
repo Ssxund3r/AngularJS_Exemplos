@@ -2,7 +2,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <h1>Lista de clientes</h1>
 
-<a href="#cliente/cadastro">Novo</a>
+<div class="row" style="margin-bottom: 10px; margin-left: 10px;">
+  <div class="update ml-auto ml-1">
+      <a href="#cliente/cadastro">
+	    <button class="btn btn-info btn-fill btn-wd">Novo</button>
+      </a>
+  </div>
+</div>
 
 <div ng-controller="clienteController" ng-init="listarClientes()">
 	<div class="content table-responsive table-full-width">
@@ -20,7 +26,8 @@
 					<td>{{cliente.nome}}</td>
 					<td>{{cliente.endereco}}</td>
 					<td>{{cliente.telefone}}</td>
-				    <td><a href ng-click="removerCliente(cliente.id);">Apagar</a></td>
+				    <td ><a href ng-click="removerCliente(cliente.id);" 
+				    	class="btn btn-danger btn-sm">deletar</a></td>
 				</tr>
 			</tbody>
 		</table>

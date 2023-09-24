@@ -26,6 +26,18 @@ app.config(function ($routeProvider) {
 });
 
 app.controller('clienteController', function ($scope, $http) {
+	
+	$scope.cliente={};
+	
+	$scope.salvarCliente = function name(){
+		
+		$http.post("cliente/salvar", $scope.cliente).then(function(response){
+			alert("Cadastro realizado com sucesso!"); 
+		}).catch(function (error) {
+			alert("Error" + error);
+		});
+	};
+	
 	$scope.listarClientes = function () {
 		$http.get("cliente/listar").then(function (response) {
 			$scope.data = response.data;
