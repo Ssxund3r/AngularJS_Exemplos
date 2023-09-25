@@ -19,6 +19,7 @@
 				<th>Endereço</th>
 				<th>Telefone</th>
 				<th>Remover</th>
+				<th>Editar</th>
 			</thead>
 			<tbody>
 				<tr ng-repeat="cliente in data">
@@ -28,6 +29,8 @@
 					<td>{{cliente.telefone}}</td>
 				    <td ><a href ng-click="removerCliente(cliente.id);" 
 				    	class="btn btn-danger btn-sm">deletar</a></td>
+			    	<td ><a href 
+			    	class="btn btn-info btn-sm" ng-click="editarCliente(cliente.id);">Editar</a></td>
 				</tr>
 			</tbody>
 		</table>

@@ -69,5 +69,6 @@ public abstract class DaoImplementacao<T> implements DaoInterface<T> {
 		criteria.addOrder(org.hibernate.criterion.Order.asc("id"));
 		return criteria.list();
 	}
-
+	
+	
 }

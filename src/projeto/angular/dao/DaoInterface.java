@@ -22,5 +22,5 @@ public interface DaoInterface<T> {
 	T merge(T objeto) throws Exception;
 
 	List<T> lista() throws Exception;
-
+	
 }

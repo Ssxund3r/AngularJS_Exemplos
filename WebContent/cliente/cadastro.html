@@ -1,4 +1,5 @@
 <html ng-app="loja">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <h1>Cadastro de clientes</h1>
 
 <div class="row" style="margin-bottom: 10px; margin-left: 10px;">
@@ -14,15 +15,17 @@
 		<div class="content">
 			<form id="formCliente" ng-submit="salvarCliente();">
 				<div class="row">
-
 					<div class="col-md-3">
-						<div class="form-group">
+						<div class="alert alert-success" role="alert"
+							ng-show="mostrarAlerta">
+							<p>Cadastro Realizado com Sucesso!</p>
+						</div>
+						<div class="form-group" style="margin-left: 3px;">
 							<label>ID</label> 
 							<input type="text" class="form-control border-input" disabled=""
 								placeholder="ID Cliente" ng-model="cliente.id">
 						</div>
 					</div>
-
 				</div>
 				
 				<div class="row">
@@ -30,14 +33,14 @@
 						<div class="form-group">
 							<label>Nome Cliente</label> 
 							<input type="text" class="form-control border-input" 
-							 placeholder="Nome"  required="required" ng-model="cliente.nome">
+							 placeholder="Nome"  required="required" ng-model="cliente.nome" id="nome">
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="form-group">
 							<label>Endereço</label> 
 							<input type="text" class="form-control" placeholder="Endereço" 
-							  required="required" ng-model="cliente.endereco">
+							  required="required" ng-model="cliente.endereco" id="endereco">
 						</div>
 					</div>
 				</div>
@@ -45,13 +48,14 @@
 					<div class="col-md-6">
 						<div class="form-group">
 							<label>Telefone</label> <input type="text" class="form-control"
-								placeholder="Telefone" ng-model="cliente.telefone">
+								placeholder="Telefone" ng-model="cliente.telefone" id="telefone">
 						</div>
 					</div>
 				</div>
+
 				<div>
-					<button type="reset" class="btn btn-info btn-fill btn-wd" ng-click="$scope.cliente={};">Limpar</button>
-					<button type="submit" class="btn btn-info btn-fill btn-wd" role="alert">Salvar</button>
+					<button type="reset" class="btn btn-info btn-fill btn-wd"  ng-click="$scope.cliente={};" id="limparCampos">Limpar</button>
+					<button type="submit" class="btn btn-info btn-fill btn-wd" id="salvarCampos">Salvar</button>
 				</div>
 			</form>
 		</div>

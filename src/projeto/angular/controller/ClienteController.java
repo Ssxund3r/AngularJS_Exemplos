@@ -15,6 +15,7 @@ import projeto.angular.dao.DaoImplementacao;
 import projeto.angular.dao.DaoInterface;
 import projeto.angular.model.Cliente;
 
+@SuppressWarnings("rawtypes")
 @Controller
 @RequestMapping(value = "/cliente")
 public class ClienteController extends DaoImplementacao<Cliente> implements DaoInterface<Cliente> {
@@ -22,6 +23,7 @@ public class ClienteController extends DaoImplementacao<Cliente> implements DaoI
 	public ClienteController(Class<Cliente> persistenceClass) {
 		super(persistenceClass);
 	}
+	
 	
 	@RequestMapping(value="salvar", method=RequestMethod.POST)
 	@ResponseBody
@@ -36,9 +38,20 @@ public class ClienteController extends DaoImplementacao<Cliente> implements DaoI
 	public String listar() throws Exception {
 		return new Gson().toJson(super.lista());
 	}
-
+	
+	@RequestMapping(value="buscarCliente/{codCliente}", method=RequestMethod.GET)
+	@ResponseBody
+	public String buscarCliente (@PathVariable("codCliente") String codCliente) throws Exception {
+		Cliente objeto = super.loadObjeto(Long.parseLong(codCliente));
+		if (objeto == null) {
+			return "{}";
+		}
+		return new Gson().toJson(objeto);
+	}
+	
 	@RequestMapping(value="deletar/{codCliente}", method=RequestMethod.DELETE)
-	public  @ResponseBody String deletar (@PathVariable("codCliente") String codCliente) throws Exception {
+	@ResponseBody
+	public String deletar (@PathVariable("codCliente") String codCliente) throws Exception {
 		super.deletar(loadObjeto(Long.parseLong(codCliente)));
 		return "";
 	}

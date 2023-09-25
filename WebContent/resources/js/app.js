@@ -25,14 +25,29 @@ app.config(function ($routeProvider) {
 		});
 });
 
-app.controller('clienteController', function ($scope, $http) {
+app.controller('clienteController', function ($scope, $http, $location, $routeParams) {
 	
-	$scope.cliente={};
+	if($routeParams.id != null && $routeParams.id != undefined
+			&& $routeParams.id != '') {
+		//entra para editar
+		$http.get("cliente/buscarCliente/" + $routeParams.id).then(function(response) {
+			$scope.cliente = response;
+		}).catch(function(error, reason, reasonLocal) {
+		    alert("Erro: " + error + ", Motivo: " + reason);
+		    console.log("Motivo local: ", reasonLocal);
+		  });		
+	} else {
+		$scope.cliente={};
+	}
+	
+	$scope.editarCliente = function(id) {
+		$location.path('clienteedit/' + id);
+	};
 	
 	$scope.salvarCliente = function name(){
-		
-		$http.post("cliente/salvar", $scope.cliente).then(function(response){
-			alert("Cadastro realizado com sucesso!"); 
+		$http.post("cliente/salvar", $scope.cliente).then(function(response) {
+			$scope.cliente={};
+			$scope.salvarCliente = response.data;
 		}).catch(function (error) {
 			alert("Error" + error);
 		});
