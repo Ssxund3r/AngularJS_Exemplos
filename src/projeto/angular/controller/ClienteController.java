@@ -39,7 +39,7 @@ public class ClienteController extends DaoImplementacao<Cliente> implements DaoI
 		return new Gson().toJson(super.lista());
 	}
 	
-	@RequestMapping(value="buscarCliente/{codCliente}", method=RequestMethod.GET)
+	@RequestMapping(value="buscarcliente/{codCliente}", method=RequestMethod.GET)
 	@ResponseBody
 	public String buscarCliente (@PathVariable("codCliente") String codCliente) throws Exception {
 		Cliente objeto = super.loadObjeto(Long.parseLong(codCliente));

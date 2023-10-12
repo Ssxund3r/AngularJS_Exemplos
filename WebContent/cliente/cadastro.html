@@ -16,14 +16,10 @@
 			<form id="formCliente" ng-submit="salvarCliente();">
 				<div class="row">
 					<div class="col-md-3">
-						<div class="alert alert-success" role="alert"
-							ng-show="mostrarAlerta">
-							<p>Cadastro Realizado com Sucesso!</p>
-						</div>
 						<div class="form-group" style="margin-left: 3px;">
 							<label>ID</label> 
 							<input type="text" class="form-control border-input" disabled=""
-								placeholder="ID Cliente" ng-model="cliente.id">
+								placeholder="ID" ng-model="cliente.id" id="idCliente">
 						</div>
 					</div>
 				</div>

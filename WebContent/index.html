@@ -116,16 +116,22 @@
 									<p>Sair</p>
 							</a></li>
 						</ul>
-
 					</div>
 				</div>
-
 			</nav>
-
 			<div class="content" ng-view>
-			</div>
-			
+			</div>	
 		</div>
 	</div>
 </body>
+ <script type="text/javascript">
+    $(document).ready(function() {
+      $.notify({
+    	  message: "Bem-Vindo!"
+      },{
+    	  type:'success',
+    	  timer: 2000
+      });
+    });
+  </script>
 </html>

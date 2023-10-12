@@ -30,14 +30,13 @@ app.controller('clienteController', function ($scope, $http, $location, $routePa
 	if($routeParams.id != null && $routeParams.id != undefined
 			&& $routeParams.id != '') {
 		//entra para editar
-		$http.get("cliente/buscarCliente/" + $routeParams.id).then(function(response) {
-			$scope.cliente = response;
-		}).catch(function(error, reason, reasonLocal) {
-		    alert("Erro: " + error + ", Motivo: " + reason);
-		    console.log("Motivo local: ", reasonLocal);
-		  });		
+		$http.get("cliente/buscarcliente/" + $routeParams.id).then(function(response) {
+			$scope.cliente = response.data;
+		}).catch(function(error) {
+			erro("Error: " + error);
+		});		
 	} else {
-		$scope.cliente={};
+		$scope.cliente = {};
 	}
 	
 	$scope.editarCliente = function(id) {
@@ -48,16 +47,17 @@ app.controller('clienteController', function ($scope, $http, $location, $routePa
 		$http.post("cliente/salvar", $scope.cliente).then(function(response) {
 			$scope.cliente={};
 			$scope.salvarCliente = response.data;
+			sucesso("Operação Realizada Com Sucesso!");
 		}).catch(function (error) {
-			alert("Error" + error);
+			erro("Error" + error);
 		});
 	};
 	
 	$scope.listarClientes = function () {
-		$http.get("cliente/listar").then(function (response) {
+		$http.get("cliente/listar/").then(function (response) {
 			$scope.data = response.data;
 		}).catch(function (error) {
-			alert("Error" + error);
+			erro("Error: " + error);
 		});
 	};
 	
@@ -65,10 +65,29 @@ app.controller('clienteController', function ($scope, $http, $location, $routePa
 	$scope.removerCliente = function(codCliente) {
 		$http.delete("cliente/deletar/" + codCliente).then(function(response) {
 			$scope.listarClientes();
+			sucesso("Operação Realizada Com Sucesso!");
 		}).catch(function(error, reason, reasonLocal) {
-		    alert("Erro: " + error + ", Motivo: " + reason);
+		    erro("Erro: " + error + ", Motivo: " + reason);
 		    console.log("Motivo local: ", reasonLocal);
 		  });
 	};
 
 });
+
+function sucesso(msg) {
+    $.notify({
+  	  message: msg
+    },{
+  	  type:'success',
+  	  timer: 1000
+    });
+}
+
+function erro(msg) {
+    $.notify({
+  	  message: msg
+    },{
+  	  type:'danger',
+  	  timer: 1000
+    });
+}
