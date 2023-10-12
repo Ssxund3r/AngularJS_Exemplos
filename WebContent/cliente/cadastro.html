@@ -41,16 +41,60 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-6">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Telefone</label> <input type="text" class="form-control"
+									placeholder="Telefone" ng-model="cliente.telefone" id="telefone">
+							</div>
+						</div>
+					
+						<div class="col-md-3">
+							<div class="form-group">
+								<label>Sexo</label> 
+								<select id="sexo" ng-model="cliente.sexo" class="form-control">
+									<option value="#">[selecione]</option>
+									<option value="Masculino">Masculino</option>
+									<option value="Feminino">Feminino</option>
+								</select>
+							</div>
+						</div>
+						
+						<div class="col-md-1">
+							<div class="form-group">
+								<label>Ativo</label> 
+								<input type="checkbox" class="form-control" ng-model="cliente.ativo">
+							</div>
+						</div>
+					</div>
+					
+				<div class="row">
+					<div class="col-md-4">
 						<div class="form-group">
-							<label>Telefone</label> <input type="text" class="form-control"
-								placeholder="Telefone" ng-model="cliente.telefone" id="telefone">
+							<label>Banco de Dados</label> 
+							<input type="radio" class="form-control"  name="interesse" ng-model="cliente.interesse" value="banco">
+						</div>
+					</div>
+					
+					<div class="col-md-4">
+						<div class="form-group">
+							<label>Programação</label> 
+							<input type="radio" class="form-control"  name="interesse" 
+								ng-model="cliente.interesse" value="programacao">
+						</div>
+					</div>
+					
+					<div class="col-md-4">
+						<div class="form-group">
+							<label>Analise</label> 
+							<input type="radio" class="form-control"  name="interesse" ng-model="cliente.interesse" 
+								value="Analise" ng-checked="true">
 						</div>
 					</div>
 				</div>
-
+		
 				<div>
-					<button type="reset" class="btn btn-info btn-fill btn-wd"  ng-click="$scope.cliente={};" id="limparCampos">Limpar</button>
+					<button type="reset" class="btn btn-info btn-fill btn-wd"  ng-click="$scope.cliente={};" 
+						id="limparCampos">Limpar</button>
 					<button type="submit" class="btn btn-info btn-fill btn-wd" id="salvarCampos">Salvar</button>
 				</div>
 			</form>

@@ -9,6 +9,13 @@
       </a>
   </div>
 </div>
+<br/>
+<div class="row" style="margin-bottom: 3px; margin-left: 1px;">
+  <div class="col-md-5">
+    <label for="filtro" style="display: inline-block; margin-right: 3px;">Filtro:</label>
+    <input id="filtro" type="text" ng-model="filtro" class="form-control" style="display: inline-block; width: 200px;">
+  </div>
+</div>
 
 <div ng-controller="clienteController" ng-init="listarClientes()">
 	<div class="content table-responsive table-full-width">
@@ -22,7 +29,7 @@
 				<th>Editar</th>
 			</thead>
 			<tbody>
-				<tr ng-repeat="cliente in data">
+				<tr ng-repeat="cliente in data | filter : filtro">
 					<td>{{cliente.id}}</td>
 					<td>{{cliente.nome}}</td>
 					<td>{{cliente.endereco}}</td>

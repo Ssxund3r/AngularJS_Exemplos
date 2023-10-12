@@ -7,17 +7,17 @@ app.config(function ($routeProvider) {
 	$routeProvider.when("/clientelist", {
 		controller: "clienteController",
 		templateUrl: "cliente/list.html"
-	})// listar
+	})// listar cadastro
 
 		.when("/clienteedit/:id", {
 			controller: "clienteController",
 			templateUrl: "cliente/cadastro.html"
-		})// editar
+		})// editar cadastro
 
 		.when("/cliente/cadastro", {
 			controller: "clienteController",
 			templateUrl: "cliente/cadastro.html"
-		})
+		})// novo cadastro
 
 		// novo
 		.otherwise({
@@ -33,7 +33,7 @@ app.controller('clienteController', function ($scope, $http, $location, $routePa
 		$http.get("cliente/buscarcliente/" + $routeParams.id).then(function(response) {
 			$scope.cliente = response.data;
 		}).catch(function(error) {
-			erro("Error: " + error);
+			alert("Error: " + error);
 		});		
 	} else {
 		$scope.cliente = {};
@@ -71,7 +71,7 @@ app.controller('clienteController', function ($scope, $http, $location, $routePa
 		    console.log("Motivo local: ", reasonLocal);
 		  });
 	};
-
+	
 });
 
 function sucesso(msg) {

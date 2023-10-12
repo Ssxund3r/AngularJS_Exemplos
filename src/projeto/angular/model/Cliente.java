@@ -16,24 +16,60 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="TB_CLIENTE")
+@Table(name = "TB_CLIENTE")
 public class Cliente implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="ID_CLIENTE")
+	@Column(name = "ID_CLIENTE")
 	private Long id;
-	
-	@Column(name="NOME")
+
+	@Column(name = "NOME")
 	private String nome;
-	
-	@Column(name="ENDERECO")
+
+	@Column(name = "ENDERECO")
 	private String endereco;
-	
-	@Column(name="TELEFONE")
+
+	@Column(name = "TELEFONE")
 	private String telefone;
+
+	@Column(name = "SEXO")
+	private String sexo;
+
+	@Column(name = "ATIVO")
+	private Boolean ativo;
+	
+	@Column(name="INTERESSE")
+	private String interesse;
+	
+	public void setInteresse(String interesse) {
+		this.interesse = interesse;
+	}
+	
+	public String getInteresse() {
+		return interesse;
+	}
+	
+	public void setAtivo(Boolean ativo) {
+		if (ativo == null)
+			this.ativo = false;
+
+		this.ativo = ativo;
+	}
+
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+
+	public String getSexo() {
+		return sexo;
+	}
 
 	public Long getId() {
 		return id;
